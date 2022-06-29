@@ -1,6 +1,6 @@
 {
   "name": "@giottopham/customized-date-picker",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
   "scripts": {
     "rollup": "rollup -c"
@@ -27,7 +27,8 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/material": "^5.8.6",
-    "@mui/x-date-pickers": "^5.0.0-alpha.7"
+    "@mui/x-date-pickers": "^5.0.0-alpha.7",
+    "date-fns": "^2.28.0"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

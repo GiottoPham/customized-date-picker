@@ -16,9 +16,14 @@ export const CustomizedDatePicker = ({
   return (
     <ButtonWithPopover
       renderButton={renderButton}
-      renderPopover={({ isPopoverOpen }) => {
+      renderPopover={({ isPopoverOpen, anchorEl }) => {
         return (
-          <Popper open={isPopoverOpen}>
+          <Popper
+            open={isPopoverOpen}
+            transition
+            anchorEl={anchorEl}
+            placement="bottom-start"
+          >
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <CalendarPicker
                 date={value}

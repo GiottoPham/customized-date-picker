@@ -1,12 +1,12 @@
 import { ButtonWithPopover, RenderButtonFn } from "./ButtonWithPopover";
-import { Popper } from "@mui/material";
+import { Popover } from "@mui/material";
 import { CalendarPicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 
 export type CustomizedDatePickerProps = {
-  value: string;
+  value: Date;
   renderButton: RenderButtonFn;
-  onValueChange: (value: string) => void;
+  onValueChange: (value: Date) => void;
 };
 export const CustomizedDatePicker = ({
   value,
@@ -16,13 +16,21 @@ export const CustomizedDatePicker = ({
   return (
     <ButtonWithPopover
       renderButton={renderButton}
-      renderPopover={({ isPopoverOpen, anchorEl }) => {
+      renderPopover={({ isPopoverOpen, anchorEl, closePopover }) => {
         return (
-          <Popper
+          <Popover
+            disableScrollLock
             open={isPopoverOpen}
-            transition
             anchorEl={anchorEl}
-            placement="bottom-start"
+            onClose={closePopover}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
           >
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <CalendarPicker
@@ -32,7 +40,7 @@ export const CustomizedDatePicker = ({
                 }}
               />
             </LocalizationProvider>
-          </Popper>
+          </Popover>
         );
       }}
     />

@@ -1,9 +1,13 @@
 {
-  "name": "@giottopham/datepicker",
+  "name": "@giottopham/customized-date-picker",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "rollup": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GiottoPham/customized-date-picker"
   },
   "author": "GiottoPham",
   "license": "ISC",
